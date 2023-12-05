@@ -55,6 +55,8 @@ import { PrivacysettingComponent } from './privacysetting/privacysetting.compone
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { HideprofileComponent } from './hideprofile/hideprofile.component';
 import { DeleteComponent } from './delete/delete.component';
+import { NearbyComponent } from './nearby/nearby.component';
+import { VerifiedComponent } from './verified/verified.component';
 
 @NgModule({
   declarations: [
@@ -96,6 +98,8 @@ import { DeleteComponent } from './delete/delete.component';
     ChangepasswordComponent,
     HideprofileComponent,
     DeleteComponent,
+    NearbyComponent,
+    VerifiedComponent,
   
   ],
   imports: [

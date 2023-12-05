@@ -1,0 +1,59 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+.form-check {
+  margin-bottom: 10px;
+}
+
+.form-check-input {
+  margin-right: 10px;
+}
+
+.form-check-label {
+  font-size: 1em;
+}
+
+/* Customize radio buttons */
+.form-check-input[type="radio"] {
+  /* Hide default radio button */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* Create custom radio button */
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #999;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Radio button checked style */
+.form-check-input[type="radio"]:checked::before {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #007bff; /* Change color as needed */
+    position: absolute;
+    top: 50%;
+    left: 30%; /* Adjust this value to move the checked content more to the left */
+    transition: transform 0.3s ease; /* Add transition for smooth animation */
+    transform: translate(-50%, -50%) scale(1.5); /* Change the scale value as needed */
+  }
+  

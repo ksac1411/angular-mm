@@ -32,6 +32,8 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
 import { PrivacysettingComponent } from './privacysetting/privacysetting.component';
 import { HideprofileComponent } from './hideprofile/hideprofile.component';
 import { DeleteComponent } from './delete/delete.component';
+import { NearbyComponent } from './nearby/nearby.component';
+import { VerifiedComponent } from './verified/verified.component';
 
 const routes: Routes = [
   {path:'dashboard',component:DashboardComponent},
@@ -40,10 +42,8 @@ const routes: Routes = [
   {path:'partnerpreference',component:MatchesComponent},
   {path:'report',component:ReportComponent},
   {path:'changepassword',component:ChangepasswordComponent},
-{path:'privacysetting', component:PrivacysettingComponent},
 {path:'hideprofile', component:HideprofileComponent},
 {path:'delete', component:DeleteComponent},
-
 {path:'messenger', component:MessengerComponent},
   {path:'contactus',component:ContactusComponent},
 { path: 'edit-profile', component: EditprofileComponent },
@@ -71,9 +71,10 @@ const routes: Routes = [
 { path: 'messenger', component: MessengerComponent },
 { path: 'member', component: MemberComponent },
 { path: 'Feedback', component: FeedbackComponent },
-
-
-
+{ path: 'privacysetting', component: PrivacysettingComponent },
+{ path: 'nearby', component: NearbyComponent },
+{ path: 'verified', component: VerifiedComponent },
+  
 ];
 
 @NgModule({

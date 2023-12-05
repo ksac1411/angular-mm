@@ -5,6 +5,8 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class ShareService {
+  private loggedInUser: any; // Store logged-in user details here
+
   userId: any;
   static getUserId() {
     throw new Error('Method not implemented.');
@@ -19,4 +21,11 @@ export class ShareService {
   getUserId(): string {
     return this.userIdSource.value;
   }
+  getLoggedInUser(): any {
+    return this.loggedInUser;
+  }
+  setLoggedInUser(user: any) {
+    this.loggedInUser = user;
+  }
+
 }

@@ -1,0 +1,22 @@
+<!-- Profile Component -->
+<div *ngIf="userProfile.isVerified">
+    <i class="fas fa-check-circle text-success"></i> Verified Profile
+  </div>
+  <div *ngIf="!userProfile.isVerified">
+    <i class="fas fa-exclamation-circle text-warning"></i> Profile not verified
+  </div>
+  <!-- Profile Component -->
+<div *ngIf="userProfile.isVerified">
+    <span class="badge badge-success">Verified</span>
+  </div>
+  <div *ngIf="!userProfile.isVerified">
+    <span class="badge badge-warning">Not Verified</span>
+  </div>
+  <!-- Profile Component -->
+<div *ngIf="userProfile.isVerified">
+    <p>Verified Profile</p>
+  </div>
+  <div *ngIf="!userProfile.isVerified">
+    <p>Profile not verified</p>
+  </div>
+  

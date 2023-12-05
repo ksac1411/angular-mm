@@ -1,6 +1,6 @@
 <div class="container mt-5">
   <h3 class="text-center">Edit Profile</h3>
-  <form (ngSubmit)="updateUser()">
+  <form (ngSubmit)="update()">
 
       <fieldset [ngClass]="{ 'd-none': currentStep !== 1 }">
         
@@ -19,22 +19,25 @@
       <!-- <button type="button" class="btn btn-primary" onclick="document.getElementById('profilePhotoInput').click();"></button> -->
       
     <div class="mb-3">
-      <label for="userid" class="form-label">ID:</label>
-      <input type="number" class="form-control" id="userid" name="userId" [(ngModel)]="user.userId" required autocomplete="off">
+      <label for="userId" class="form-label"> User ID:</label>
+      <!-- <input type="text" class="form-control" id="userId" name="userId" [(ngModel)]="user.userId" required autocomplete="off" 
+        [disabled]="isDisabled"> -->
+         <input type="text" class="form-control" id="userId" name="userId" [(ngModel)]="user.userId" required autocomplete="off" 
+        >
     </div>
       <div class="mb-3">
         <label for="name" class="form-label">Name:</label>
-        <input type="text" class="form-control" id="username" name="username" [(ngModel)]="user.username" required autocomplete="off">
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="user.username" required autocomplete="off">
       </div>
    
       <div class="mb-3">
         <label class="form-label">Looking for:</label>
         <div class="form-check">
-          <input type="radio" class="form-check-input" id="lookingForBride" name="lookingFor" value="bride" [(ngModel)]="user.lookingFor" required>
+          <input type="radio" class="form-check-input" id="lookingForBride" name="lookingFor" value="bride" [(ngModel)]="user.personLookingFor" required>
           <label class="form-check-label" for="lookingForBride">Bride</label>
         </div>
         <div class="form-check">
-          <input type="radio" class="form-check-input" id="lookingForGroom" name="lookingFor" value="groom" [(ngModel)]="user.lookingFor" required>
+          <input type="radio" class="form-check-input" id="lookingForGroom" name="lookingFor" value="groom" [(ngModel)]="user.personLookingFor" required>
           <label class="form-check-label" for="lookingForGroom">Groom</label>
         </div>
       </div>
@@ -75,7 +78,7 @@
        
       <div class="mb-3">
           <label for="mother_tongue" class="form-label">Mother Tongue:</label>
-          <select id="mother_tongue" name="mother_tongue" class="form-control" [(ngModel)]="user.mother_tongue" required>
+          <select id="mother_tongue" name="mother_tongue" class="form-control" [(ngModel)]="user.motherTongue" required>
             <option value="">- Select Mother Tongue -</option>
             <option value="Hindi">Hindi</option>
             <option value="English">English</option>
@@ -110,14 +113,14 @@
         <div class="mb-3">
           <label class="form-label">Height:</label>
           <div class="d-flex">
-            <select id="minHeight" name="minHeight" class="form-control" [(ngModel)]="user.heightMin" placeholder= "min-height" required>
-              <option value="" disabled selected>- Min Height -</option>
+            <select id="Height" name="Height" class="form-control" [(ngModel)]="user.heightMin" placeholder= "height" required>
+              <option value="" disabled selected>- Height -</option>
               <option *ngFor="let height of heightOptions" [value]="height">{{ height }}</option>
             </select>
-            <select id="maxHeight" name="maxHeight" class="form-control" [(ngModel)]="user.heightMax" required>
+            <!-- <select id="maxHeight" name="maxHeight" class="form-control" [(ngModel)]="user.heightMax" required>
               <option value="" disabled selected>- Max Height -</option>
               <option *ngFor="let height of heightOptions" [value]="height">{{ height }}</option>
-            </select>
+            </select> -->
           </div>
         </div>
 
@@ -182,7 +185,7 @@
       <h3>Background Information</h3>
       <div class="mb-3">
         <label for="marital_status" class="form-label">Marital Status:</label>
-        <select id="marital_status" name="marital_status" class="form-control" [(ngModel)]="user.marital_status" required>
+        <select id="marital_status" name="marital_status" class="form-control" [(ngModel)]="user.maritalStatus" required>
           <option value="">- Select -</option>
           <option value="single">Single</option>
           <option value="divorced">Divorced</option>]
@@ -200,7 +203,7 @@
       </div>
 
       <div class="form-check mb-3">
-        <input type="checkbox" class="form-check-input" id="manglik_status" name="manglik_status" value="manglik" [(ngModel)]="user.manglik_status">
+        <input type="checkbox" class="form-check-input" id="manglik_status" name="manglik_status" value="manglik" [(ngModel)]="user.manglikStatus">
         <label class="form-check-label" for="manglik_status">Manglik Status</label>
       </div>
 
@@ -306,7 +309,7 @@
         
         <div class="mb-3">
           <label for="income" class="form-label">Income:</label>
-          <select id="income" name="income" class="form-control" [(ngModel)]="user.income" required>
+          <select id="income" name="income" class="form-control" [(ngModel)]="user.incomeRange" required>
             <option value="">- Select Income -</option>
             <option value="Less than 25000">Less than 25000</option>
             <option value="Less than 50000">Less than 50000</option>
@@ -462,8 +465,8 @@
     <label for="caste" class="form-label">Caste:</label>
     <select class="form-select" id="caste" name="caste" [(ngModel)]="user.caste" required>
       <option value="">- Select Caste -</option>
-      <option value="Caste Option 1">Caste Option 1</option>
-      <option value="Caste Option 2">Caste Option 2</option>
+      <option value="Caste Option 1"> baniya </option>
+      <option value="Caste Option 2"> brahamin</option>
       <option value="Caste Option 3">Caste Option 3</option>
       <!-- Add more caste options as needed -->
     </select>
@@ -473,8 +476,8 @@
     <label for="subCaste" class="form-label">Sub-Caste:</label>
     <select class="form-select" id="subCaste" name="subCaste" [(ngModel)]="user.subCaste">
       <option value="">- Select Sub-Caste -</option>
-      <option value="Sub-Caste Option 1">Sub-Caste Option 1</option>
-      <option value="Sub-Caste Option 2">Sub-Caste Option 2</option>
+      <option value="Sub-Caste Option 1">agrwal</option>
+      <option value="Sub-Caste Option 2">sharma</option>
       <option value="Sub-Caste Option 3">Sub-Caste Option 3</option>
       <!-- Add more sub-caste options as needed -->
     </select>
@@ -490,13 +493,68 @@
   <div class="d-flex justify-content-between">
     <button type="button" class="btn btn-secondary" (click)="prevStep()">Previous</button>
 
-    <!-- <button type="button" class="btn btn-success" (click)="updateUser()">Update</button> -->
-    <button type="submit" class="btn btn-success">Update</button>
-  </div>
-  <div class="mb-3">
+    <button type="button" class="btn btn-success" (click)="update()">Update</button>
+    <!-- <button type="submit" class="btn btn-success">Update</button> -->
+  </div><br>
+  <div class="mb-3 ">
     <button type="button" class="btn btn-danger" (click)="deleteProfile()">Delete Profile</button>
   </div>
 
 </fieldset>
-</form>
+<!-- </form>
+<div *ngIf="user">
+  <h3 class="text-center">Filled Profile</h3>
+
+  <p>User ID: {{ user.userId }}</p>
+  <p>Name: {{ user.username }}</p>
+  <p>Looking for: {{ user.lookingFor }}</p>
+  <p>Profile Handle By: {{ user.profileHandleBy }}</p>
+  <p>Religion: {{ user.religion }}</p>
+ <p>Mother Tongue: {{ user.motherTongue }}</p>
+  <p>Age: {{ user.ageMax }}</p>
+    <p>Height: {{ user.heightMin }}</p>
+    <h3>Contact Information</h3>
+<p>Country: {{ user.country }}</p>
+<p>State: {{ user.state }}</p>
+<p>City: {{ user.city }}</p>
+<p>Email: {{ user.email }}</p>
+<p>Mobile Number: {{ user.phoneNumber }}</p>
+  <h3>Background Information</h3>
+  <p>Marital Status: {{ user.maritalStatus }}</p>
+  <p>Residential Status: {{ user.residential_status }}</p>
+  <p>Manglik Status: {{ user.manglikStatus }}</p>
+  <p>Horoscope: {{ user.horoscope }}</p>
+  <p>Health Issues: {{ user.healthIssues }}</p>
+  <p>Hobbies: {{ user.hobbies }}</p>
+  <p>Eye Sight Requirement: {{ user.eyesightRequirement }}</p>
+ 
+  <h3>Education and Occupation</h3>
+  <p>Education: {{ user.education }}</p>
+    <p>Occupation: {{ user.occupation }}</p>
+    <p>Employed In: {{ user.employedIn }}</p>
+    <p>Income: {{ user.incomeRange }}</p>
+    <p>Interested in Settling Abroad: {{ user.settlingAbroad }}</p>
+    <p>Transfer Location: {{ user.transferLocation }}</p>
+  <p>Preferred City: {{ user.preferredCity }}</p>
   
+
+  <h3>Habits</h3>
+  <p>Drink: {{ user.drink }}</p>
+    <p>Diet: {{ user.diet }}</p>
+    <p>Smoke: {{ user.smoke }}</p>
+    <p>Body Type: {{ user.bodyType }}</p>
+    <p>Face Cut: {{ user.faceCut }}</p>
+ 
+
+  <h3>Family Background</h3>
+  <p>Family Based Out: {{ user.familyBasedOut }}</p>
+    <p>Family Type: {{ user.familyType }}</p>
+    <p>Family Size: {{ user.familySize }}</p>
+    <p>Sister Count: {{ user.sisterCount }}</p>
+   <p>Brother Count: {{ user.brotherCount }}</p>
+    <p>Caste: {{ user.caste }}</p>
+    <p>Sub-Caste: {{ user.subCaste }}</p>
+    <p>Caste No Bar: {{ user.casteNoBar }}</p>
+
+</div>
+</div> -->

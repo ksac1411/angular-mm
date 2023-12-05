@@ -39,15 +39,27 @@ export class LoginComponent {
     console.log(this.logindata);
 
     this.userservice.login(this.logindata).subscribe(
-      (data: any) => {
+      (data) => {
         // Check if 'data' haIs expected properties before navigating
         if (data && data.userId) {
-          this.shareservice.setUserId = data.userId; // Store the value in the service
+
+console.log(data)
+
+
+       
+        
+          this.shareservice.setUserId(data.userId);
+       const    userid=this.shareservice.getUserId();
+
+
+          console.log("userid stored" ,userid) // Store the value in the service
           this.data = data;
-          const navigationExtras: NavigationExtras = {
-            queryParams: { userData: JSON.stringify(this.data) }
-          };
-          this.router.navigate(['/dashboard'], navigationExtras);
+          // const navigationExtras: NavigationExtras = {
+          //   queryParams: { userData: JSON.stringify(this.data) }
+          // };
+          this.router.navigate(['/dashboard'],
+          //  navigationExtras
+          );
         } else {
           console.error('Invalid response format:', data);
           this.errorMessage = 'Unexpected response from the server.';

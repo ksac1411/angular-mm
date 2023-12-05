@@ -4,6 +4,8 @@
   color: white; /* Set the text color to white */
   padding: 20px 0; /* Add padding for spacing */
 position: relative;
+width: 100%;
+bottom: 600px;
 }
 
 /* Style the links */

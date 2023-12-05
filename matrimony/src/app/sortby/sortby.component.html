@@ -1,1 +1,88 @@
-<p>sortby works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <!-- Filter buttons -->
+      <div class="list-group">
+        <button class="list-group-item list-group-item-action" (click)="selectFilter('Age')">Age</button>
+        <button class="list-group-item list-group-item-action" (click)="selectFilter('Height')">Height</button>
+        <button class="list-group-item list-group-item-action" (click)="selectFilter('Salary')">Salary</button>
+
+        <!-- Add other filter options here -->
+      </div>
+    </div>
+
+    <div class="col-6">
+      <!-- Filter for Age -->
+      <div class="filter-item" *ngIf="selectedFilter === 'Age'">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link" (click)="sortAge('lowToHigh')">Low to High</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="sortAge('highToLow')">High to Low</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="sortAge('priority')">Priority</a>
+          </li>
+          <li class="nav-item" *ngIf="filterOptions.sortAge === 'priority'">
+            <a class="nav-link" (click)="selectPriority(1)">1</a>
+          </li>
+          <li class="nav-item" *ngIf="filterOptions.sortAge === 'priority'">
+            <a class="nav-link" (click)="selectPriority(2)">2</a>
+          </li>
+          <li class="nav-item" *ngIf="filterOptions.sortAge === 'priority'">
+            <a class="nav-link" (click)="selectPriority(3)">3</a>
+          </li>
+        </ul>
+      </div>
+      
+
+      <div class="filter-item" *ngIf="selectedFilter === 'Height'">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link" (click)="sortHeight('lowToHigh')">Low to High</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="sortHeight('highToLow')">High to Low</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="sortHeight('priority')">Priority</a>
+          </li>
+          <li class="nav-item" *ngIf="filterOptions.sortHeight === 'priority'">
+            <a class="nav-link" (click)="selectPriority(1)">1</a>
+          </li>
+          <li class="nav-item" *ngIf="filterOptions.sortHeight === 'priority'">
+            <a class="nav-link" (click)="selectPriority(2)">2</a>
+          </li>
+          <li class="nav-item" *ngIf="filterOptions.sortHeight === 'priority'">
+            <a class="nav-link" (click)="selectPriority(3)">3</a>
+          </li>
+        </ul>
+      </div>
+      <div class="filter-item" *ngIf="selectedFilter === 'Salary'">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link" (click)="sortSalary('lowToHigh')">Low to High</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="sortSalary('highToLow')">High to Low</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="sortSalary('priority')">Priority</a>
+          </li>
+          <li class="nav-item" *ngIf="filterOptions.sortSalary === 'priority'">
+            <a class="nav-link" (click)="selectSalaryPriority(1)">1</a>
+          </li>
+          <li class="nav-item" *ngIf="filterOptions.sortSalary === 'priority'">
+            <a class="nav-link" (click)="selectSalaryPriority(2)">2</a>
+          </li>
+          <li class="nav-item" *ngIf="filterOptions.sortSalary === 'priority'">
+            <a class="nav-link" (click)="selectSalaryPriority(3)">3</a>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Add other filter sections here -->
+    </div>
+  </div>
+</div>

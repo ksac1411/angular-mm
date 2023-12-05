@@ -15,7 +15,7 @@ export class User {
   // emailOrphoneNumber:any;
  countryCode:any;
     // Partner Preferences
-    lookingFor: {
+    personLookingFor: {
         bride: boolean;
         groom: boolean;
       } = {
@@ -24,7 +24,7 @@ export class User {
       };
     
 name:any
-   manglik_status: {
+manglikStatus: {
         manglik_status: boolean;
     }={manglik_status:false};
     // Personal Details
@@ -33,17 +33,17 @@ name:any
     religion: any;
    heightMin: any;
    heightMax:any;
-    mother_tongue: any;
+   motherTongue: any;
     country: any;
     state:any;
-    marital_status: any;
+    maritalStatus: any;
     residential_status: any;
     horoscope: any;
   city:any;
     // Professional Details
     education: any;
     occupation: any;
-    income: any;
+    incomeRange: any;
   
     // Lifestyle Choices
     drink: any;

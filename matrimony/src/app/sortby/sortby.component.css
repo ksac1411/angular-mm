@@ -1,0 +1,18 @@
+/* Add appropriate styling to match your design */
+.container {
+  margin-top: 20px;
+}
+
+.list-group {
+  margin-bottom: 20px;
+}
+
+.filter-item {
+  margin-bottom: 20px;
+}
+
+.nav-item {
+  margin-right: 10px;
+}
+
+/* Additional CSS as needed */

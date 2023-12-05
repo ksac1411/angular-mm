@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user'; // replace 'User' with the actual user interface or model
 import { UserserviceService } from '../userservice.service';
-
+import { ShareService } from '../ShareService';
 
 @Component({
   selector: 'app-activity',
@@ -10,26 +10,50 @@ import { UserserviceService } from '../userservice.service';
 })
 export class ActivityComponent implements OnInit  {
   userList: User[] = [];
-  recentlyJoinedUsers!: any[];
+  recentlyJoinedUsers: any[] = [];
+ // Variable to store the userId
 
-  constructor(private userService: UserserviceService) {}
+  constructor(private userService: UserserviceService, private shareservice: ShareService) {}
+  userId= this.shareservice.getUserId();
+  ngOnInit(): void {  
+    console.log('Retrieved userId:', this.userId);
+    this.fetchUserData();
+    this.getRecentlyJoinedUsers(); // Call the renamed function here
 
-  ngOnInit(): void {
-    // this.trackvisitor('vv1000', 'vv1001'); // Replace with actual values
-    
-    
-        this.getRecentlyJoinedUsers();
-      }
-    
-      getRecentlyJoinedUsers() {
-        this.userService.getRecentlyJoinedUsers()
-          .subscribe((data: any[]) => {
-            this.recentlyJoinedUsers = data;
-          });
-      }
-    
+    // ...other code
+  }
+
+  fetchUserData(): void {
+    if (this.userId) {
+      this.getAcceptedUsersList(this.userId);
+      this.getRecentlyJoinedUsers();
+      // Other necessary data fetch calls based on userId
+    } else {
+      console.error('User ID not available.');
+
+  }
+}
+  // ngOnInit() {
+  //   this.userId = this.shareservice.getUserId();
+  //   console.log(this.userId);
+  //   this.getRecentlyJoinedUsers();
+  // }
+  
+  getRecentlyJoinedUsers(): void {
+    this.userService.getRecentlyJoinedUsers()
+      .subscribe(
+        (data: any[]) => {
+          this.recentlyJoinedUsers = data;
+          console.log('Recently joined users:', this.recentlyJoinedUsers);
+        },
+        (error: any) => {
+          console.error('Error fetching recently joined users:', error);
+        }
+      );
+  }
+     
   getAcceptedUsersList(userId: string): void {
-    this.userService.getAcceptedUsersList(userId).subscribe(
+    this.userService.getAcceptedUsersList(this.userId).subscribe(
       (data: User[]) => {
         this.userList = data;
         console.log('Accepted User List:', this.userList);
@@ -43,7 +67,10 @@ export class ActivityComponent implements OnInit  {
     
     // Add your logic here for accepting a member
     console.log('Member accepted');
-    this.getAcceptedUsersList('vv1000'); // Call the method here after performing the accept operation
+
+   
+    
+    this.getAcceptedUsersList(this.userId); // Call the method here after performing the accept operation
 
   }
   getDeclinedUsersList(userId: string): void {
@@ -62,7 +89,7 @@ export class ActivityComponent implements OnInit  {
   declineMember() {
     // Add your logic here for declining a member
     console.log('Member declined');
-   this. getDeclinedUsersList ('vv1001')
+   this. getDeclinedUsersList (this.userId)
   }
 
   getBlockedUsersList(userId: string): void {
@@ -80,12 +107,12 @@ export class ActivityComponent implements OnInit  {
   blockMember() {
     // Add your logic here for blocking a member
     console.log('Member blocked');
-    this. getBlockedUsersList ('vv1000')
+    this. getBlockedUsersList (this.userId)
 
   }
   Shortlisted(){
     console.log('Member blocked');
-    this. getShortlistedUsersList ('vv1000')
+    this. getShortlistedUsersList (this.userId)
 
   }
   getShortlistedUsersList(userId: string): void {
@@ -115,7 +142,7 @@ export class ActivityComponent implements OnInit  {
 
 received() {
   console.log('received request sucessfully');
-    this. getreceivedUsersList ('vv1001')
+    this. getreceivedUsersList (this.userId)
 
 }
 getreceivedUsersList(userId: string): void {
@@ -132,7 +159,7 @@ getreceivedUsersList(userId: string): void {
 
   send() {
     console.log('Send request sucessfully');
-      this. getSendUsersList ('vv1000')
+      this. getSendUsersList (this.userId)
   
   }
 

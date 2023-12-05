@@ -13,8 +13,8 @@
     width: 100%;
     max-width: 400px;
     padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    /* margin-top:-125px; */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+    margin-top:-120px;
     /* height: auto; */
   }
   
@@ -114,7 +114,7 @@ background-color: darkblue;}
     font-size: medium;
     text-align: center;
     font-weight: bold;
-    color:darkblue;
+    color:black;
    }
   /* Responsive adjustments */
 @media screen and (max-width: 768px) {
@@ -123,6 +123,7 @@ background-color: darkblue;}
     padding: 10px; /* Add some padding to the container for better spacing */
   }
   .card {
-    max-width: 100%; /* Make the card full width on small screens */
+    max-width: 100%;
+    margin-top: auto; /* Make the card full width on small screens */
   }
 }

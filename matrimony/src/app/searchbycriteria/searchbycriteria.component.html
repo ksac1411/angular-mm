@@ -24,7 +24,7 @@
        
       <div class="mb-3">
           <label for="mother_tongue" class="form-label">Mother Tongue:</label>
-          <select id="mother_tongue" name="mother_tongue" class="form-control" [(ngModel)]="user.mother_tongue" required>
+          <select id="mother_tongue" name="mother_tongue" class="form-control" [(ngModel)]="user.motherTongue" required>
             <option value="">- Select Mother Tongue -</option>
             <option value="Hindi">Hindi</option>
             <option value="English">English</option>
@@ -71,7 +71,7 @@
         </div>
         <div class="mb-3">
           <label for="marital_status" class="form-label">Marital Status:</label>
-          <select id="marital_status" name="marital_status" class="form-control" [(ngModel)]="user.marital_status" required>
+          <select id="marital_status" name="marital_status" class="form-control" [(ngModel)]="user.maritalStatus" required>
             <option value="">- Select -</option>
             <option value="single">Single</option>
             <option value="divorced">Divorced</option>]
@@ -128,7 +128,7 @@
           </select>
           </div>
           <div class="form-check mb-3">
-            <input type="checkbox" class="form-check-input" id="manglik_status" name="manglik_status" value="manglik" [(ngModel)]="user.manglik_status">
+            <input type="checkbox" class="form-check-input" id="manglik_status" name="manglik_status" value="manglik" [(ngModel)]="user.manglikStatus">
             <label class="form-check-label" for="manglik_status">Manglik Status</label>
           </div>
 
@@ -245,7 +245,7 @@
         
         <div class="mb-3">
           <label for="income" class="form-label">Income:</label>
-          <select id="income" name="income" class="form-control" [(ngModel)]="user.income" required>
+          <select id="income" name="income" class="form-control" [(ngModel)]="user.incomeRange" required>
             <option value="">- Select Income -</option>
             <option value="Less than 25000">Less than 25000</option>
             <option value="Less than 50000">Less than 50000</option>

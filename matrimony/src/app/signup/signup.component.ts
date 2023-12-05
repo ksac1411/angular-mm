@@ -103,14 +103,14 @@ export class SignupComponent {
             this.userService.signup(this.logindata).subscribe(
  
               (registrationResponse) => {
- 
+ console.log(registrationResponse)
 
 
 
-const userId = registrationResponse.userObj.userId;
+const userId = registrationResponse.user.userId;
 
 this.shareservice.setUserId(userId);
-
+console.log (userId)
 
 
 

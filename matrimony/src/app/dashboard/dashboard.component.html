@@ -1,5 +1,5 @@
 
-<app-dashboardheader></app-dashboardheader>
+<!-- <app-dashboardheader></app-dashboardheader> -->
 
 <nav class="navbar navbar-expand-lg ">
   <div class="container">
@@ -94,22 +94,26 @@
       <h2 class="card-title">User Profile</h2>
 
       <div *ngIf="userData">
-
-        <p class="card-text"><strong>Name:</strong> {{ userData.name }}</p>
-
-        <p class="card-text"><strong>Email:</strong> {{ userData.email }}</p>
-
-        <!-- <p class="card-text"><strong>Photo:</strong></p>
+        <p class="card-text"><strong></strong></p>
 
         <img [src]="userData.profilePhoto" alt="User Photo" width="400" height="400">
-
-         -->
+        <p class="card-text"><strong>ID:</strong> {{ userData.userId }}</p>
+       <p class="card-text"><strong>Name:</strong> {{ userData.name }}</p>
+        <p class="card-text"><strong>Age:</strong> {{ userData.age }}</p>
+        <p class="card-text"><strong>Height</strong> {{ userData.heightMin }}</p>
+        <p class="card-text"><strong>Manglik Status</strong> {{ userData.manglikStatus }}</p>
+        <p class="card-text"><strong>Education</strong> {{ userData.education }}</p>       
+         <p class="card-text"><strong>Occupation</strong> {{ userData.occupation }}</p>
+          <p class="card-text"><strong>Religion:</strong> {{ userData.religion }}</p>
+        <p class="card-text"><strong>Income:</strong> {{ userData.incomeRange }}</p>
+        <p class="card-text"><strong>Mother Tongue</strong> {{ userData.motherTongue }}</p>
 
         <p class="card-text"><strong>City:</strong> {{ userData.city }}</p>
+        <p class="card-text"><strong>State:</strong> {{ userData.state }}</p>
 
-        <p class="card-text"><strong>Username:</strong> {{ userData.username }}</p>
 
-        <p class="card-text"><strong>ID:</strong> {{ userData.id }}</p>
+
+
 
         <!-- Add more properties as needed -->
 
@@ -124,7 +128,7 @@
 
       <div *ngIf="!userData" class="text-center">
 
-        <p class="card-text">Loading user data...</p>
+        <!-- <p class="card-text">Loading user data...</p> -->
 
       </div>
 

@@ -1,0 +1,70 @@
+<div class="container ">
+    <h2 class="mb-4">Privacy Settings</h2>
+    <div class="card-body">
+        <h3 class="card-title">Mobile No.</h3>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="mobileNumberSettings" id="visibleToAllMobile" value="visibleToAllMobile" [(ngModel)]="mobileNumberSettings" (ngModelChange)="saveMobileNumberSettings()">
+          <label class="form-check-label" for="visibleToAllMobile">Visible To All</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="mobileNumberSettings" id="interestSentAcceptedMobile" value="interestSentAcceptedMobile" [(ngModel)]="mobileNumberSettings" (ngModelChange)="saveMobileNumberSettings()">
+          <label class="form-check-label" for="interestSentAcceptedMobile">Only To Interest Sent/Accepted</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="mobileNumberSettings" id="dontShowToAnyoneMobile" value="dontShowToAnyoneMobile" [(ngModel)]="mobileNumberSettings" (ngModelChange)="saveMobileNumberSettings()">
+          <label class="form-check-label" for="dontShowToAnyoneMobile">Don't Show to Anyone</label>
+        </div>
+      </div>
+    <div class="card-body">
+      <h3 class="card-title">Album Privacy</h3>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="albumPrivacy" id="visibleToAll" value="visibleToAll" [(ngModel)]="albumPrivacy" (ngModelChange)="saveAlbumPrivacy()">
+        <label class="form-check-label" for="visibleToAll">Visible to All</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="albumPrivacy" id="onlyPaidMatches" value="onlyPaidMatches" [(ngModel)]="albumPrivacy" (ngModelChange)="saveAlbumPrivacy()">
+        <label class="form-check-label" for="onlyPaidMatches">Only to Paid Matches</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="albumPrivacy" id="interestSentAccepted" value="interestSentAccepted" [(ngModel)]="albumPrivacy" (ngModelChange)="saveAlbumPrivacy()">
+        <label class="form-check-label" for="interestSentAccepted">Only to Interest Sent/Accepted</label>
+      </div>
+    </div>
+    
+    <div class="card-body">
+      <h3 class="card-title">Profile Visibility</h3>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="profileVisibility" id="showToAll" value="showToAll" [(ngModel)]="profileVisibility" (ngModelChange)="saveProfileVisibility()">
+        <label class="form-check-label" for="showToAll">Show To All</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="profileVisibility" id="onlyToMatches" value="onlyToMatches" [(ngModel)]="profileVisibility" (ngModelChange)="saveProfileVisibility()">
+        <label class="form-check-label" for="onlyToMatches">Only To Matches That Fit My Criteria</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="profileVisibility" id="hideFromAll" value="hideFromAll" [(ngModel)]="profileVisibility" (ngModelChange)="saveProfileVisibility()">
+        <label class="form-check-label" for="hideFromAll">Hide From All</label>
+      </div>
+    </div>
+      <div class="card-body">
+        <h3 class="card-title">Voice Call Settings</h3>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="voiceCallSettings" id="allMatchesVoice" value="allMatchesVoice" [(ngModel)]="voiceCallSettings" (ngModelChange)="saveVoiceCallSettings()">
+          <label class="form-check-label" for="allMatchesVoice">All Matches</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="voiceCallSettings" id="acceptedMatchesVoice" value="acceptedMatchesVoice" [(ngModel)]="voiceCallSettings" (ngModelChange)="saveVoiceCallSettings()">
+          <label class="form-check-label" for="acceptedMatchesVoice">Only From Accepted Matches</label>
+        </div>
+    </div>  
+  <div class="card-body">
+    <h3 class="card-title">Video Call Settings</h3>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="videoCallSettings" id="acceptedMatchesVideo" value="acceptedMatchesVideo" [(ngModel)]="videoCallSettings" (ngModelChange)="saveVideoCallSettings()">
+      <label class="form-check-label" for="acceptedMatchesVideo">Only From Accepted Matches</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="videoCallSettings" id="noMatchesVideo" value="noMatchesVideo" [(ngModel)]="videoCallSettings" (ngModelChange)="saveVideoCallSettings()">
+      <label class="form-check-label" for="noMatchesVideo">No Matches</label>
+    </div>
+  </div>

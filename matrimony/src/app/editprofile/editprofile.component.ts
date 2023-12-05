@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { User } from '../user';
 import { UserserviceService } from '../userservice.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ShareService } from '../ShareService';
 
 @Component({
   selector: 'app-editprofile',
@@ -16,15 +17,28 @@ export class EditprofileComponent implements OnInit {
   user: User = new User(); // Initialize the user object with empty values
   currentStep = 1;
   selectedProfilePhoto!: File | null;
-  userid: any;
+  userId: any;
+  // user = {
+  //   userId: 'defaultUserID' // Set the default value for user ID here
+  //   // Other user properties...
+  // };
 
+  isDisabled = true; // Set this based on your condition to disable/enable the field
+
+  // Example condition to toggle the disabled state
+  toggleDisable() {
+    this.isDisabled = !this.isDisabled; // Toggle the disabled state
+  }
   constructor(
     private userservice: UserserviceService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private shareservice: ShareService
   )  {
+    
+
     this.route.queryParams.subscribe(params => {
-      this.userid = params['userid'];
+      this.userId = params['userId'];
     });
   
   
@@ -39,11 +53,14 @@ export class EditprofileComponent implements OnInit {
   }
 
   ngOnInit() {
+    //  
     // Retrieve the userId query parameter
     this.route.queryParams.subscribe(params => {
-      this.userid = params['userid'];
-      if (this.userid) {
-        this.userservice.getUserById(this.userid).subscribe(
+      this.userId = params['userId'];
+      
+      if (this.userId) {
+        
+        this.userservice.getUserById(this.userId).subscribe(
           (data: User) => {
             this.user = data; // Assuming your service returns user data
           },
@@ -72,7 +89,7 @@ export class EditprofileComponent implements OnInit {
     }
   }
 
-  updateUser() {
+  update() {
     console.log('Updating user:', this.user);
 
     // Send a PUT request to update the user data using this.userService
@@ -80,7 +97,8 @@ export class EditprofileComponent implements OnInit {
       response => {
         // Handle success response
         console.log('User updated successfully', response);
-        this.router.navigate(['/editprofile']);
+        this.router.navigate(['/dashboard']);
+        
       },
       error => {
         // Handle errors here
